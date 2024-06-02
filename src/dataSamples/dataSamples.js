@@ -51,8 +51,40 @@ const sample2 = {
 const jsonString1 = `{"name": "John", "age": 30, "city": "New York"}`;
 const jsonString2 = '[{"name": "Jane"}, {"name": "Doe"}]';
 const jsonString3 = '{"boolean": true, "nullValue": null, "array": [1, 2, 3]}';
+const unicodeSample = `{
+    "name": "John Doe",
+    "age": 30,
+    "address": {
+      "street": "123 Main St",
+      "city": "M\u00FCnchen",
+      "country": "Deutschland"
+    },
+    "favorites": {
+      "color": "\u9752",
+      "food": "Sushi \uD83C\uDF63",
+      "music": "\uD83C\uDFB5"
+    },
+    "languages": [
+      "English",
+      "Espa\u00F1ol",
+      "\u65E5\u672C\u8A9E",
+      "\u4E2D\u6587"  
+    ],
+    "emoticons": {
+      "happy": "\uD83D\uDE0A",
+      "sad": "\uD83D\uDE22",  
+      "wink": "\uD83D\uDE09"  
+    },
+    "quote": "\u201CTo be, or not to be, that is the question.\u201D \u2013 Shakespeare"
+  }
+`;
 
-export { jsonString1 as data1, jsonString2 as data2, jsonString3 as data3 };
+export {
+    jsonString1 as data1,
+    jsonString2 as data2,
+    jsonString3 as data3,
+    unicodeSample,
+};
 
 export const data4 = JSON.stringify(sample1);
 export const data5 = JSON.stringify(sample2);
