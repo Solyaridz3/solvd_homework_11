@@ -1,4 +1,4 @@
-import { data1, data2 } from "./dataSamples.js";
+import { data1, data2, data3, data4, data5 } from "./dataSamples.js";
 
 function tokenize(jsonString) {
     const regex =
@@ -50,14 +50,8 @@ function myJSONParse(jsonString) {
     return result;
 }
 
-// Test cases
-const jsonString1 = `{"name": "John", "age": 30, "city": "New York"}`;
-const jsonString2 = '[{"name": "Jane"}, {"name": "Doe"}]';
-const jsonString3 = '{"boolean": true, "nullValue": null, "array": [1, 2, 3]}';
-
-console.log(myJSONParse(jsonString1)); // Should output: { name: 'John', age: 30, city: 'New York' }
-console.log(myJSONParse(jsonString2)); // Should output: [{ name: 'Jane' }, { name: 'Doe' }]
-console.log(myJSONParse(jsonString3)); // Should output: { boolean: true, nullValue: null, array: [1, 2, 3] }
-
 console.log(myJSONParse(data1));
 console.log(myJSONParse(data2));
+console.log(myJSONParse(data3));
+console.log(myJSONParse(data4));
+console.log(myJSONParse(data5));

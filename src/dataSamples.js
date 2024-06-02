@@ -48,5 +48,11 @@ const sample2 = {
     ],
 };
 
-export const data1 = JSON.stringify(sample1);
-export const data2 = JSON.stringify(sample2);
+const jsonString1 = `{"name": "John", "age": 30, "city": "New York"}`;
+const jsonString2 = '[{"name": "Jane"}, {"name": "Doe"}]';
+const jsonString3 = '{"boolean": true, "nullValue": null, "array": [1, 2, 3]}';
+
+export { jsonString1 as data1, jsonString2 as data2, jsonString3 as data3 };
+
+export const data4 = JSON.stringify(sample1);
+export const data5 = JSON.stringify(sample2);
