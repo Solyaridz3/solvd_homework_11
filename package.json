@@ -1,13 +1,14 @@
 {
-  "name": "task_11",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "task_11",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "example": "node src/example.js",
+        "fileExample": "node src/fileExample.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

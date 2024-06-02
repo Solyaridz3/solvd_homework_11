@@ -1,5 +1,10 @@
-import { data1, data2, data3, data4, data5 } from "./dataSamples.js";
-
+/**
+ * Tokenizes a JSON string into an array of tokens.
+ *
+ * @param {string} jsonString - The JSON string to be tokenized.
+ * @return {Array<string>} An array of tokens representing the JSON string.
+ * @throws {SyntaxError} If the JSON string contains an unexpected token.
+ */
 function tokenize(jsonString) {
     const regex =
         /"(?:\\.|[^"\\])*"|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?|true|false|null|[\{\}\[\],:]/g;
@@ -8,6 +13,13 @@ function tokenize(jsonString) {
     return tokens;
 }
 
+/**
+ * Parses a JSON string into a JavaScript value.
+ *
+ * @param {Array<string>} tokens - An array of tokens representing the JSON string.
+ * @return {any} The parsed JavaScript value.
+ * @throws {SyntaxError} If the JSON string contains an unexpected token.
+ */
 function parseValue(tokens) {
     const token = tokens.shift(); // better change to queue with O(1) dequeue complexity
 
@@ -43,6 +55,13 @@ function parseValue(tokens) {
     throw new SyntaxError("Unexpected token");
 }
 
+/**
+ * Parses a JSON string into a JavaScript value.
+ *
+ * @param {string} jsonString - The JSON string to be parsed.
+ * @return {any} The parsed JavaScript value.
+ * @throws {SyntaxError} If the JSON string contains an unexpected token.
+ */
 function myJSONParse(jsonString) {
     const tokens = tokenize(jsonString);
     const result = parseValue(tokens);
@@ -50,8 +69,5 @@ function myJSONParse(jsonString) {
     return result;
 }
 
-console.log(myJSONParse(data1));
-console.log(myJSONParse(data2));
-console.log(myJSONParse(data3));
-console.log(myJSONParse(data4));
-console.log(myJSONParse(data5));
+export default myJSONParse;
+
