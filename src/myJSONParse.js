@@ -23,7 +23,8 @@ function tokenize(jsonString) {
 function parseValue(tokens) {
     const token = tokens.shift(); // better change to queue with O(1) dequeue complexity
 
-    if (token === "{") { // handle objects
+    if (token === "{") {
+        // handle objects
         const obj = {};
         while (tokens[0] !== "}") {
             const key = parseValue(tokens);
@@ -36,7 +37,8 @@ function parseValue(tokens) {
         return obj;
     }
 
-    if (token === "[") { // handle arrays
+    if (token === "[") {
+        // handle arrays
         const arr = [];
         while (tokens[0] !== "]") {
             arr.push(parseValue(tokens));
@@ -45,14 +47,21 @@ function parseValue(tokens) {
         tokens.shift(); // remove ']'
         return arr;
     }
-    
-    if (token.startsWith('"')) return token.slice(1, -1); // string without quotes
+
+    if (token.startsWith('"')) {
+        const clearStr = token.slice(1, -1);
+        return isDate(clearStr) ? new Date(clearStr) : clearStr;
+    }
     if (token === "true") return true;
     if (token === "false") return false;
     if (token === "null") return null;
     if (!isNaN(token)) return Number(token); // number
 
     throw new SyntaxError("Unexpected token");
+}
+
+function isDate(dateStr) {
+    return new Date(dateStr) !== "Invalid Date" && !isNaN(new Date(dateStr));
 }
 
 /**
@@ -70,4 +79,3 @@ function myJSONParse(jsonString) {
 }
 
 export default myJSONParse;
-

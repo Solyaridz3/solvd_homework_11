@@ -6,6 +6,7 @@ import {
     data4,
     data5,
     unicodeSample,
+    datesSample,
 } from "./dataSamples/dataSamples.js";
 
 console.log(myJSONParse(data1));
@@ -14,3 +15,4 @@ console.log(myJSONParse(data3));
 console.log(myJSONParse(data4));
 console.log(myJSONParse(data5));
 console.log(myJSONParse(unicodeSample));
+console.log(myJSONParse(datesSample)); // converts valid date strings to Date object

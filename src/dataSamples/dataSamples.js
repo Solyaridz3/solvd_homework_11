@@ -79,11 +79,14 @@ const unicodeSample = `{
   }
 `;
 
+const datesSample = `{"event1":{"name":"Conference","date":"2024-07-15","location":"New York"},"event2":{"name":"Meeting","date":"2024-08-20","location":"London"},"event3":{"name":"Webinar","date":"2024-09-05","location":"Online"}}`;
+
 export {
     jsonString1 as data1,
     jsonString2 as data2,
     jsonString3 as data3,
     unicodeSample,
+    datesSample,
 };
 
 export const data4 = JSON.stringify(sample1);
