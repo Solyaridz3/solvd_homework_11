@@ -33,29 +33,29 @@ function parseValue(tokens) {
             obj[key] = parseValue(tokens);
             if (tokens[0] === ",") tokens.shift();
         }
-        tokens.shift(); // remove '}' in the end
+        tokens.shift();
         return obj;
     }
 
     if (token === "[") {
-        // handle arrays
         const arr = [];
         while (tokens[0] !== "]") {
             arr.push(parseValue(tokens));
             if (tokens[0] === ",") tokens.shift();
         }
-        tokens.shift(); // remove ']'
+        tokens.shift();
         return arr;
     }
 
     if (token.startsWith('"')) {
         const clearStr = token.slice(1, -1);
-        return isDate(clearStr) ? new Date(clearStr) : clearStr;
+        // custom Date reviver realization
+        return isDate(clearStr) ? new Date(clearStr) : clearStr; // Date object from string if string is valid date or string without changes
     }
     if (token === "true") return true;
     if (token === "false") return false;
     if (token === "null") return null;
-    if (!isNaN(token)) return Number(token); // number
+    if (!isNaN(token)) return Number(token);
 
     throw new SyntaxError("Unexpected token");
 }
